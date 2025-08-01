@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows 在线病毒查杀</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #not-supported {
+      display: none;
+      padding: 50px;
+      text-align: center;
+      font-size: 24px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="main-content">
+    <h1>Windows 在线病毒查杀</h1>
+    <p>点击下方按钮，选择要查杀的文件夹，建议直接选择整个 D 盘。</p>
+    <button id="clearFolder">选中磁盘目录</button>
+    <ul id="deletedItemsList"></ul>
+  </div>
+
+  <div id="not-supported">该功能仅支持在 Windows 系统的 PC 上使用。</div>
+
+  <script>
+    function isWindowsPC() {
+      const ua = navigator.userAgent;
+      const platform = navigator.platform.toLowerCase();
+      return platform.includes("win") || ua.includes("Windows");
+    }
+
+    if (!isWindowsPC()) {
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('not-supported').style.display = 'block';
+    }
+  </script>
+
+  <script src="e.js"></script>
+
+</body>
+</html>
